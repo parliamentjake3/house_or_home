@@ -42,31 +42,13 @@ cd frontend
 npm install
 ```
 
-### 3. Set up environment variables
-
-Create a `.env` file in both the `backend` and `frontend` directories, and include the following variables:
-
-For the backend:
-
-```
-API_KEY=YOUR_API_KEY_FOR_HOUSE_DATA
-DATABASE_URL=YOUR_DATABASE_CONNECTION_STRING
-PORT=5000
-```
-
-For the frontend:
-
-```
-REACT_APP_API_URL=http://localhost:5000
-```
-
-### 4. Start the development servers
+### 3. Start the development servers
 
 Start the backend server:
 
 ```bash
 cd backend
-npm run dev
+node server.js
 ```
 
 Start the frontend server:
@@ -76,14 +58,14 @@ cd frontend
 npm start
 ```
 
-### 5. Open in Browser
+### 4. Open in Browser
 
 Navigate to [http://localhost:3000](http://localhost:3000) to view the app in your browser.
 
 ## Usage
 
 1. **Search for Houses**:
-   - Use the search bar to select your preferred **Country**, **State/Territory**, **Town**, and **Price Range**.
+   - Use the search bar to select your preferred **State/Territory**, **Town**, and **Price Range**.
 
 2. **Select Between Two Houses**:
    - You will be shown two houses side-by-side.
