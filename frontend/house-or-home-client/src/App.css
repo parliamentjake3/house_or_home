@@ -1,66 +1,257 @@
-.App {
-  text-align: center;
+/* Animation for the house when it is not selected */
+.fade-out-left {
+  animation: fadeOutLeft 0.5s forwards;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
+.fade-out-right {
+  animation: fadeOutRight 0.5s forwards;
 }
 
-.house-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 20px;
+/* Keyframes for the left house animation */
+@keyframes fadeOutLeft {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
 }
 
-.house-card {
-  border: 1px solid #ccc;
+/* Keyframes for the right house animation */
+@keyframes fadeOutRight {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.title{
+  align-self: center;
+  
+}
+
+.this_title{
+  color: rgb(0, 123, 255);
+}
+
+.that_title{
+  color: rgb(213, 49, 49);
+}
+
+/* General container styling */
+body {
+  font-family: Arial, sans-serif;
+  background: #121212;
+  margin: 0;
+  padding: 0;
+  color: #e0e0e0;
+}
+
+/* Main Container */
+.house-search-container {
+  width: 80%;
+  max-width: 1200px;
+  margin: 50px auto;
+  background: #1e1e1e;
+  border: 1px solid #333;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
   border-radius: 8px;
-  background-color: #fff;
-  color: #333;
-  margin: 10px;
-  padding: 20px;
-  width: 300px;
-  text-align: left;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 30px;
 }
 
+/* Form Controls */
+.house-search-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #bdbdbd;
+}
+
+.house-search-form select,
+.house-search-form input,
+.house-search-form button {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #555;
+  border-radius: 4px;
+  font-size: 16px;
+  background: #333;
+  color: #e0e0e0;
+}
+
+/* Button styling */
+.house-search-form button {
+  background: #007bff;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  transition: background 0.3s ease;
+}
+
+.house-search-form button:hover {
+  background: #0056b3;
+}
+
+/* Loading and Error Messages */
+.loading-message,
+.error-message {
+  text-align: center;
+  font-size: 18px;
+}
+
+.loading-message {
+  color: #888;
+}
+
+.error-message {
+  color: #ff5252;
+}
+
+/* House List */
+.house-compare {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Responsive layout for the houses */
+@media (max-width: 768px) {
+  .house-compare {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+}
+
+/* House Card */
+.house-card {
+  background: #2e2e2e;
+  border: 1px solid #555;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+  width: calc(50% - 20px);
+  padding: 15px;
+  transition: transform 0.2s ease-in-out;
+  text-align: center;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .house-card {
+    width: 100%;
+  }
+}
+
+.house-card:hover {
+  transform: translateY(-5px);
+}
+
+/* House Image */
 .house-img {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-bottom: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-.house-info {
-  padding: 10px;
-}
-
+/* House Info */
 .house-info h2 {
   font-size: 18px;
   margin: 10px 0;
+  color: #f5f5f5;
 }
 
 .house-info p {
   margin: 5px 0;
+  color: #9e9e9e;
 }
 
-.view-link {
-  display: inline-block;
-  padding: 10px 15px;
+.house-info a {
+  display: block;
   margin-top: 10px;
-  background-color: #007bff;
-  color: white;
-  text-decoration: none;
+  text-align: center;
+  background: #007bff;
+  color: #fff;
+  padding: 10px 0;
   border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.3s ease;
 }
 
-.view-link:hover {
-  background-color: #0056b3;
+.house-info a:hover {
+  background: #0056b3;
+}
+
+/* VS Indicator */
+.or {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  font-weight: bold;
+  color: #f0f0f0;
+  margin: 0 30px;
+}
+
+/* Winner Container */
+.winner h2 {
+  text-align: center;
+  color: #ffcc00;
+}
+
+.winner .house-card {
+  margin: 0 auto;
+  width: 50%;
+}
+
+@media (max-width: 768px) {
+  .winner .house-card {
+    width: 100%;
+  }
+}
+
+/* Choice Buttons */
+.choice-buttons {
+  margin-top: 15px;
+}
+
+.choice-button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 10px 5px;
+  transition: background 0.3s ease;
+}
+
+.choice-button.this {
+  background: #007bff;
+  color: #fff;
+}
+
+.choice-button.that {
+  background: #ff5252;
+  color: #fff;
+}
+
+.choice-button.this:hover {
+  background: #0056b3;
+}
+
+.choice-button.that:hover {
+  background: #d32f2f;
 }

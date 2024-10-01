@@ -70,7 +70,7 @@ async function scrapeHomes(state, city, minPrice, maxPrice) {
 
     const scrollableSelector = '#placardContainer';
     console.log("Scrolling using the mouse scroll wheel to load all house elements...");
-    await fixedScrollUsingMouseWheel(page, scrollableSelector, 10, 900);
+    await fixedScrollUsingMouseWheel(page, scrollableSelector, 15, 900);
 
     await delay(5000);
     await page.screenshot({ path: 'homes_debug_after_scroll.png' });
