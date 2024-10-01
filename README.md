@@ -26,36 +26,11 @@ git clone https://github.com/yourusername/house-or-home.git
 cd house-or-home
 ```
 
-### 2. Install dependencies
+### 2. Start the web app
 
-For the backend:
-
+Use the premade shell script to install dependinces and start each server
 ```bash
-cd backend
-npm install
-```
-
-For the frontend:
-
-```bash
-cd frontend
-npm install
-```
-
-### 3. Start the development servers
-
-Start the backend server:
-
-```bash
-cd backend
-node server.js
-```
-
-Start the frontend server:
-
-```bash
-cd frontend
-npm start
+start-project.ps1
 ```
 
 ### 4. Open in Browser
